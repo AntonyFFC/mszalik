@@ -2,7 +2,7 @@ name: Run Python Script and Save Output
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "**" ]
   workflow_dispatch: # Allows you to run this manually from the Actions tab
 
 jobs:
