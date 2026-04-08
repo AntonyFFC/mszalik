@@ -37,7 +37,7 @@ jobs:
       - name: create-pages-to-print
         run: |
           mkdir -p public 
-          pages_alghoritm.py > public/index.html
+          python pages_alghoritm.py > public/index.html
           cp *.pdf public/
 
       - name: Upload to GitHub Pages
