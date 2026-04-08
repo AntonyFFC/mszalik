@@ -1,4 +1,4 @@
-name: Run Python Script and Save Output
+iname: Run Python Script and Save Output
 
 on:
   push:
@@ -28,6 +28,8 @@ jobs:
 
       # 4. Run your script
       # Replace 'main.py' with your script's filename
+      - name: dd
+        run: ls -R
       - name: Run script
         run: python htmltopdf.py
       # 5. Upload the output files as artifacts
