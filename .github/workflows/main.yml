@@ -34,6 +34,4 @@ jobs:
         with:
           name: script-output-files
           path: |
-            *.pdf
-            results.txt
-            
+            missale_ready.pdf
