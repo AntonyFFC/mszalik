@@ -54,7 +54,7 @@ if __name__ == "__main__":
     
     # If a file is in 'ready', it won't be re-generated.
     # NOTE: On GitHub Actions, these files won't exist unless you committed them to the repo.
-    
+    ready = []
     # Loop through all HTML files named 1.html, 2.html, etc.
     while os.path.exists("{}.html".format(i)):
         html_file = "{}.html".format(i)
