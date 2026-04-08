@@ -2,8 +2,14 @@ name: Generate PDFs with Selenium
 
 on:
   push:
-    branches: [ "**" ]
+    branches: [ "**" ] # It's usually best to deploy from your default branch
   workflow_dispatch:
+
+# Permissions required to deliver content to GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
 
 jobs:
   build:
@@ -21,18 +27,22 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          # We need selenium, webdriver-manager, and pypdf
           pip install selenium webdriver-manager pypdf
 
       - name: Run script
-        # No change to command, but environment now supports Chrome
         run: python htmltopdf.py
 
-      - name: Upload Output Files
-        if: always() # Upload even if the script crashes so you can see why
-        uses: actions/upload-artifact@v4
+      # GitHub Pages expects a directory, so we move the PDF into one
+      - name: Prepare for deployment
+        run: |
+          mkdir -p public
+          cp missale_ready.pdf public/
+
+      - name: Upload to GitHub Pages
+        uses: actions/upload-pages-artifact@v3
         with:
-          name: script-output-files
-          compression-level: 0
-          path: |
-            missale_ready.pdf
+          path: './public' # Points to the folder we just created
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
