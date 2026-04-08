@@ -1,4 +1,4 @@
-iname: Run Python Script and Save Output
+name: Run Python Script and Save Output
 
 on:
   push:
