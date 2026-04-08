@@ -1,46 +1,39 @@
-name: Run Python Script and Save Output
+name: Generate PDFs with Selenium
 
 on:
   push:
     branches: [ "**" ]
-  workflow_dispatch: # Allows you to run this manually from the Actions tab
+  workflow_dispatch:
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-      # 1. Check out the repository code
       - name: Checkout code
         uses: actions/checkout@v4
 
-      # 2. Set up the Python environment
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.10' # Specify your preferred version
+          python-version: '3.10'
 
-      # 3. Install dependencies (if you have a requirements.txt)
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+          # We need selenium, webdriver-manager, and pypdf
+          pip install selenium webdriver-manager pypdf
 
-      # 4. Run your script
-      # Replace 'main.py' with your script's filename
-      - name: dd
-        run: ls -R
-        
       - name: Run script
+        # No change to command, but environment now supports Chrome
         run: python htmltopdf.py
-      # 5. Upload the output files as artifacts
+
       - name: Upload Output Files
+        if: always() # Upload even if the script crashes so you can see why
         uses: actions/upload-artifact@v4
         with:
-          name: script-output-files # The name of the zip file you'll download
+          name: script-output-files
           path: |
-            output/
             *.pdf
             results.txt
-          # The 'path' can be a directory, a specific file, or a wildcard.
-          
+            
