@@ -50,7 +50,6 @@ if __name__ == "__main__":
     merger = PdfWriter()
     ready = []
     # ready = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
-    ready = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,19,20]
     while os.path.exists("{}.html".format(i)):
         if i not in ready:
             save_html_as_pdf("{}.html".format(i), "{}.pdf".format(i))
