@@ -35,16 +35,14 @@ jobs:
         run: python htmltopdf.py
 
       - name: create-pages-to-print
-        run: pages_alghoritm.py
+        run: pages_alghoritm.py > public/index.html
 
       - name: Prepare for deployment
         run: |
           mkdir -p public
           # Copy your PDF into the public folder
           cp *.pdf public/
-          # Create a landing page so you don't get a 404 error
-          echo "<html><body style='font-family:sans-serif; text-align:center; padding:50px;'><h1>PDF Generated Successfully</h1><p><a href='missale_ready.pdf' style='font-size:20px;'>Click here to view missale_ready.pdf</a></p></body></html>" > public/index.html
-
+          
       - name: Upload to GitHub Pages
         uses: actions/upload-pages-artifact@v3
         with:
