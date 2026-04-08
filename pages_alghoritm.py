@@ -51,5 +51,5 @@ for paper in prepare_papers(number_of_pages):
                     f"sheet_{br}{bl}{l}{r}.pdf")
     created.append(f"sheet_{br}{bl}{l}{r}.pdf")
     merged += 2
-fff =["<html><body style='font-family:sans-serif; text-align:center; padding:50px;'><h1>PDF Generated Successfully</h1><p><a href='{}' style='font-size:20px;'>Click here to view {}</a></p><br>".format(f,f) for f in fff]
+fff =["<html><body style='font-family:sans-serif; text-align:center; padding:50px;'><h1>PDF Generated Successfully</h1><p><a href='{}' style='font-size:20px;'>Click here to view {}</a></p><br>".format(f,f) for f in created]
 print("<html><body style='font-family:sans-serif; text-align:center; padding:50px;'><h1>PDF Generated Successfully</h1><p><a href='missale_ready.pdf' style='font-size:20px;'>Click here to view missale_ready.pdf</a></p>{}</body></html>".format(fff))
