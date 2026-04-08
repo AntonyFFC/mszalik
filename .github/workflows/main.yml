@@ -35,14 +35,11 @@ jobs:
         run: python htmltopdf.py
 
       - name: create-pages-to-print
-        run: pages_alghoritm.py > public/index.html
-
-      - name: Prepare for deployment
         run: |
-          mkdir -p public
-          # Copy your PDF into the public folder
+          mkdir -p public 
+          pages_alghoritm.py > public/index.html
           cp *.pdf public/
-          
+
       - name: Upload to GitHub Pages
         uses: actions/upload-pages-artifact@v3
         with:
