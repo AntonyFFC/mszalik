@@ -162,6 +162,19 @@ p {
 .dialog {
     font-size: 2.8mm;
     display: flex;
-    justify-content: space-between;
+    align-items: flex-start;
     margin-bottom: 8px;
+    width: 90%;
+}
+
+.dialog span[style*="color: #ee1d23"] {
+    flex: 0 0 auto; /* Don't let it grow or shrink */
+    white-space: nowrap; /* Keep the label on one line */
+    padding-right: 5px;
+}
+
+/* This is the question/answer part */
+.dialog span:last-child {
+    flex-grow: 1;      /* This forces the span to fill the entire width */
+    text-align: right;  /* This glues the text (Chcę) to the far right */
 }
