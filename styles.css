@@ -164,7 +164,8 @@ p {
     display: flex;
     align-items: flex-start;
     margin-bottom: 8px;
-    width: 90%;
+    margin-left: 10px;
+    width: 95%;
 }
 
 .dialog span[style*="color: #ee1d23"] {
