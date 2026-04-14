@@ -55,4 +55,4 @@ def create_split_pages_with_bg(input_file, output_file, bg_color="#FEFAF2"):
 
 
 # Change "#F5F5DC" to any hex color you like (e.g., "#FFFFFF" for pure white)
-create_split_pages_with_bg("Barbara.pdf", "okladka.pdf", bg_color="#F5F5DC")
+create_split_pages_with_bg("Barbara.pdf", "okladka.pdf", bg_color="#FEFAF2")
