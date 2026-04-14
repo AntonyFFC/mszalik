@@ -15,7 +15,7 @@ def create_background_pdf(color_hex):
     return PdfReader(packet).pages[0]
 
 
-def create_split_pages_with_bg(input_file, output_file, bg_color="#F5F5DC"):
+def create_split_pages_with_bg(input_file, output_file, bg_color="#FEFAF2"):
     reader = PdfReader(input_file)
     writer = PdfWriter()
 
