@@ -150,6 +150,11 @@ p {
 }
 .cross {
 }
+.posture-sep {
+    display: block;
+    width: 45mm;
+    margin: 5px auto;
+}
 .n {
     color: #ee1d23;
 }
