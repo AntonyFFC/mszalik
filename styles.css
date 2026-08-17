@@ -155,6 +155,17 @@ p {
     width: 45mm;
     margin: 5px auto;
 }
+.spoken-part {
+}
+.quiet-part .latin, .quiet-part .polish,
+.quiet-part .latin-r, .quiet-part .polish-r {
+    font-size: 2.7mm;
+    color: #555555;
+}
+.quiet-text {
+    font-size: 2.7mm;
+    color: #555555;
+}
 .n {
     color: #ee1d23;
 }
