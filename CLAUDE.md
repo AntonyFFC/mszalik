@@ -53,7 +53,7 @@ A booklet (A5 pages, printed as folded A4 sheets) for a wedding in the Tradition
 
 Paragraphs start with `&emsp;` for the indent. The fonts are Century Schoolbook, with red `#ee1d23`.
 
-Known quirks (left as they are, because fixing them would shift the layout everywhere): in `styles.css`, `h3` is missing `;` after `color: black`, so its `margin-top: 17mm` is ignored. `12.html` has a stray `"` in `class="red-info""`.
+Known quirks (left as they are, because fixing them would shift the layout everywhere): in `styles.css`, `h3` is missing `;` after `color: black`, so its `margin-top: 17mm` is ignored.
 
 ## Page map (file → printed page → content)
 
