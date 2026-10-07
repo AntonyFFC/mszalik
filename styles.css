@@ -155,6 +155,11 @@ p {
     width: 45mm;
     margin: 5px auto;
 }
+.elevation {
+    display: block;
+    height: 15mm;
+    margin: -18px auto 5px auto;
+}
 .n {
     color: #ee1d23;
 }

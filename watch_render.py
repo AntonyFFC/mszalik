@@ -21,10 +21,14 @@ class HtmlChangeHandler(FileSystemEventHandler):
     def on_created(self, event):
         self._handle(event)
 
-    def _handle(self, event):
+    def on_moved(self, event):
+        # Editors that save atomically write a temp file and rename it over N.html
+        self._handle(event, event.dest_path)
+
+    def _handle(self, event, path=None):
         if event.is_directory:
             return
-        path = event.src_path
+        path = path or event.src_path
         if not path.lower().endswith(".html"):
             return
 

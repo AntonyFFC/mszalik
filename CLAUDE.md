@@ -30,6 +30,9 @@ A booklet (A5 pages, printed as folded A4 sheets) for a wedding in the Tradition
   - Even file number (even printed page, a left-hand page): `.polish-r` first, then `.latin-r`.
   - Header lines (`.naglowek-liturgiczny`) are mirrored too: on odd pages the reference comes first and the title last; on even pages the title comes first and the reference last.
   - **When text moves to a page of the other parity, swap the column order and classes.**
+- **Checking the fit:** `python check_fit.py [first [last]]` renders the pages in one Chrome session and prints the PDF page count and the approximate free space for each page. "free" is pessimistic by about 5–7 mm: about −3 mm can still fit, and `pages=1` is what decides it. The only judge is `pages`.
+- **Reflow procedure after adding or moving content:** edit the page, then run `check_fit.py` from that page onward. If a page overflows, move its last block(s) to the top of the next file, swapping `.latin`/`.polish` ↔ `.polish-r`/`.latin-r` order if the parity changes. Repeat until every page shows `pages=1`.
+- **Blank 2nd page trap:** text can end above the bottom edge and Chrome still emits an empty second page. The cause is the last `.parallel-container`'s 25 px `margin-bottom` plus the body's 20 px padding. Fix it with `style="margin-bottom: 0;"` on the page's last container before moving any content.
 - **Each page must fit on one A5 page.** Overflow makes Chrome output a 2-page PDF, and the imposition uses only the first page. Check that `N.pdf` has 1 page after a change. Text that doesn't fit is moved by hand to the start of the next file, and that may cascade through later pages.
 - Spacing is tuned per element with inline `style="margin-top:-15px"` and similar. Existing negative margins are intentional.
 
