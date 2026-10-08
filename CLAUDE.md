@@ -45,7 +45,7 @@ A booklet (A5 pages, printed as folded A4 sheets) for a wedding in the Tradition
 | `.parallel-container` > `.latin` + `.polish` (or `.polish-r` + `.latin-r`) | Two-column Latin/Polish text |
 | `.red-info` | Rubric: red instructions, not read aloud |
 | `.naglowek-liturgiczny` | Flex header line: bold title + scripture reference (2.8 mm span) |
-| `<b style="color: #ee1d23;">&emsp;S. </b>` / `M.` (Latin), `K.` / `W.` (Polish) | Dialogue speaker labels: priest / server (Latin), priest / faithful (Polish) |
+| `<b style="color: #ee1d23;">&emsp;S. </b>` / `M.` (Latin), `K.` / `W.` (Polish) | Dialogue speaker labels: priest / server (Latin), priest / faithful (Polish). Used everywhere, including the marriage rite; the people's "Amen" is `M.`/`W.`. `V.` is kept only for a choir verse (Introit Gloria Patri on 9.html). Explained to readers on 1.html |
 | `.dialog` | One-line Q&A row (vows / scrutinium), label left, answer right-aligned |
 | `<img class="posture-sep" src="...">` | Posture symbols: `klk.png` kneel, `kon_klk.png` rise from kneeling, `wst.png` stand, `sdn.png` sit |
 | `<span class="cross"><img src="img.png"></span>` | Small red cross: the celebrant makes the sign of the cross here |
@@ -57,7 +57,7 @@ Known quirks (left as they are, because fixing them would shift the layout every
 
 ## Page map (file → printed page → content)
 
-1→3 How to use the missal · 2→4 Marriage (intro) · 3→5 Graces of the sacrament, rite, Veni Creator · 4→6 Ephesians / Matthew readings · 5→7 Scrutinium · 6→8 Exchange of consent, rings · 7→9 Confirmation of the marriage, Ps 127 · 8→10 Ps 127 end + closing prayers of the rite · 9→11 Ordo Missæ: Introit, Kyrie, Gloria · 10→12 Collect · 11→13 Epistle, Gradual · 12→14 Gradual/Alleluia, Gospel · 13→15 Offertory, Secret · 14→16 Preface, Sanctus, Canon · 15→17 Consecration · 16→18 Pater noster, nuptial blessing · 17→19 Nuptial blessing (Deus qui potestate…) · 18→20 Fraction, prayers before Communion · 19→21 Communion · 20→22 Postcommunion · 21→23 Blessing, Last Gospel · 22→24 Last Gospel (end)
+1→3 How to use the missal · 2→4 Marriage (intro) · 3→5 Marriage (intro end), rite, Veni Creator · 4→6 Ephesians / Matthew readings · 5→7 Scrutinium · 6→8 Exchange of consent, rings · 7→9 Confirmation of the marriage, Ps 127 · 8→10 Ps 127 end + closing prayers of the rite · 9→11 Ordo Missæ: Introit, Kyrie, Gloria · 10→12 Collect · 11→13 Epistle, Gradual · 12→14 Gradual/Alleluia, Gospel · 13→15 Offertory, Secret · 14→16 Preface, Sanctus, Canon · 15→17 Consecration · 16→18 Pater noster, nuptial blessing · 17→19 Nuptial blessing (Deus qui potestate…) · 18→20 Fraction, prayers before Communion · 19→21 Communion · 20→22 Postcommunion · 21→23 Blessing, Last Gospel · 22→24 Last Gospel (end)
 
 ## History
 
