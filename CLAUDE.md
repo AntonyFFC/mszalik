@@ -4,7 +4,7 @@ A booklet (A5 pages, printed as folded A4 sheets) for a wedding in the Tradition
 
 ## How it is built
 
-- **One HTML file = one A5 page.** `1.html … 22.html` are the content pages, all styled by `styles.css` (`@page` size 148×210 mm). `0.html` is an empty template page.
+- **One HTML file = one A5 page.** `1.html … 20.html` are the content pages, all styled by `styles.css` (`@page` size 148×210 mm). `0.html` is an empty template page.
 - `htmltopdf.py` uses headless Chrome (Selenium + CDP `Page.printToPDF`) to render each `N.html` to `N.pdf`, then merges them into `missale_ready.pdf`. `save_html_as_pdf(html, pdf)` is the reusable function.
 - `pages_alghoritm.py` does the saddle-stitch imposition. It pads the page count to a multiple of 4 (`None` = blank page), puts 2 A5 pages on each A4 side with `mergea5toa4.py`, and writes `sheet_<BR><BL><L><R>.pdf` (one double-sided A4 sheet each). It prints an `index.html` with links to them.
 - `megre_cover.py` builds `okladka.pdf` (the cover) from `Barbara.pdf`, using background `#FEFAF2`.
@@ -57,7 +57,9 @@ Known quirks (left as they are, because fixing them would shift the layout every
 
 ## Page map (file → printed page → content)
 
-1→3 How to use the missal · 2→4 Marriage (intro) · 3→5 Marriage (intro end), rite, Veni Creator · 4→6 Ephesians / Matthew readings · 5→7 Scrutinium · 6→8 Exchange of consent, rings · 7→9 Confirmation of the marriage, Ps 127 · 8→10 Ps 127 end + closing prayers of the rite · 9→11 Ordo Missæ: Introit, Kyrie, Gloria · 10→12 Collect · 11→13 Epistle, Gradual · 12→14 Gradual/Alleluia, Gospel · 13→15 Offertory, Secret · 14→16 Preface, Sanctus, Canon · 15→17 Consecration · 16→18 Pater noster, nuptial blessing · 17→19 Nuptial blessing (Deus qui potestate…) · 18→20 Fraction, prayers before Communion · 19→21 Communion · 20→22 Postcommunion · 21→23 Blessing, Last Gospel · 22→24 Last Gospel (end)
+1→3 How to use the missal · 2→4 Marriage (intro) · 3→5 Rite start, Veni Creator, Emitte, Deus qui corda · 4→6 Ephesians / Matthew readings, sermon, blessing of rings (versicles) · 5→7 Ring prayer, Scrutinium, start of consent · 6→8 Vows, rings, confirmation of the marriage · 7→9 Call to prayer, Ps 127, Kyrie, Pater noster, closing versicles (start) · 8→10 Closing versicles (end), prayer Respice · 9→11 Ordo Missæ: Introit, Kyrie · 10→12 Gloria, Collect · 11→13 Epistle, Gradual, preparation for the Gospel · 12→14 Gospel, Offertory · 13→15 Preface, Sanctus, Canon · 14→16 Consecration · 15→17 Per omnia, Pater noster, nuptial blessing (start) · 16→18 Nuptial blessing (end), Fraction · 17→19 Pax, Agnus Dei, Confiteor, Ecce Agnus Dei · 18→20 Domine non sum dignus, Communion, Postcommunion, Ite missa est · 19→21 Deus Abraham, Placeat, Blessing, Last Gospel · 20→22 Last Gospel (end)
+
+The imposition pads the content pages to a multiple of 4, so 20 pages = 5 A4 sheets with no blanks. Adding a 21st page costs a whole extra sheet (3 blank pages).
 
 ## History
 
@@ -66,3 +68,4 @@ Known quirks (left as they are, because fixing them would shift the layout every
 - Aug 13: corrections, movement and margin fixes.
 - Aug 14: posture separators, `watch_render.py`, the instructions page (1.html), and page re-flow.
 - Aug 17: quiet (grey) parts marked with `.quiet-part`. Reverted on Oct 7 (commit 7a11084), so these classes no longer exist.
+- Oct 8: rubrics simplified, labels unified (S./M., K./W.); whole booklet reflowed from 22 to 20 pages (one A4 sheet fewer).
