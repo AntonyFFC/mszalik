@@ -4,7 +4,7 @@ A booklet (A5 pages, printed as folded A4 sheets) for a wedding in the Tradition
 
 ## How it is built
 
-- **One HTML file = one A5 page.** `1.html … 21.html` are the content pages, all styled by `styles.css` (`@page` size 148×210 mm). `0.html` is an empty template page.
+- **One HTML file = one A5 page.** `1.html … 20.html` are the content pages, all styled by `styles.css` (`@page` size 148×210 mm). `0.html` is an empty template page.
 - `htmltopdf.py` uses headless Chrome (Selenium + CDP `Page.printToPDF`) to render each `N.html` to `N.pdf`, then merges them into `missale_ready.pdf`. `save_html_as_pdf(html, pdf)` is the reusable function.
 - `pages_alghoritm.py` does the saddle-stitch imposition. It pads the page count to a multiple of 4 (`None` = blank page), puts 2 A5 pages on each A4 side with `mergea5toa4.py`, and writes `sheet_<BR><BL><L><R>.pdf` (one double-sided A4 sheet each). It prints an `index.html` with links to them.
 - `megre_cover.py` builds `okladka.pdf` (the cover) from `Barbara.pdf`, using background `#FEFAF2`.
@@ -57,9 +57,9 @@ Known quirks (left as they are, because fixing them would shift the layout every
 
 ## Page map (file → printed page → content)
 
-1→3 How to use the missal · 2→4 Marriage (intro) · 3→5 Rite start, Veni Creator, Emitte, Deus qui corda · 4→6 Ephesians / Matthew readings, sermon, blessing of rings (versicles) · 5→7 Ring prayer, Scrutinium, start of consent · 6→8 Vows, rings, confirmation of the marriage · 7→9 Call to prayer, Ps 127, Kyrie, Pater noster, closing versicles (start) · 8→10 Closing versicles (end), prayer Respice · 9→11 Ordo Missæ: Introit, Kyrie · 10→12 Gloria, Collect · 11→13 Epistle, Gradual, preparation for the Gospel · 12→14 Gospel, Credo (start) · 13→15 Credo (end), Offertory, Preface dialogue · 14→16 Preface, Sanctus, Canon · 15→17 Consecration · 16→18 Per omnia, Pater noster, nuptial blessing (start) · 17→19 Nuptial blessing (end), Fraction · 18→20 Pax, Agnus Dei, Confiteor, Misereatur · 19→21 Indulgentiam, Communion, prayers after Communion · 20→22 Postcommunion, Ite, Deus Abraham, Placeat, Blessing · 21→23 Last Gospel
+1→3 Welcome to the guests, Communion notice, how to use the missal · 2→4 Rite start, Veni Creator, Emitte, Deus qui corda · 3→5 Ephesians / Matthew readings, sermon, blessing of rings (versicles) · 4→6 Ring prayer, Scrutinium, start of consent · 5→7 Vows, rings, confirmation of the marriage · 6→8 Call to prayer, Ps 127, Kyrie, Pater noster, closing versicles (start) · 7→9 Closing versicles (end), prayer Respice · 8→10 Ordo Missæ: Introit, Kyrie · 9→11 Gloria, Collect · 10→12 Epistle, Gradual, preparation for the Gospel · 11→13 Gospel, Credo (start) · 12→14 Credo (end), Offertory, Preface dialogue · 13→15 Preface, Sanctus, Canon · 14→16 Consecration · 15→17 Per omnia, Pater noster, nuptial blessing (start) · 16→18 Nuptial blessing (end), Fraction · 17→19 Pax, Agnus Dei, Confiteor, Misereatur · 18→20 Indulgentiam, Communion, prayers after Communion · 19→21 Postcommunion, Ite, Deus Abraham, Placeat, Blessing · 20→22 Last Gospel
 
-The imposition pads the content pages to a multiple of 4. With the Credo (Sunday wedding) there are 21 pages, i.e. 6 A4 sheets with 3 blank pages at the end; 20 pages would be exactly 5 sheets.
+The imposition pads the content pages to a multiple of 4. There are 20 pages (with the Credo for the Sunday wedding), i.e. exactly 5 A4 sheets; one more page would need a 6th sheet with 3 blank pages.
 
 ## History
 
@@ -69,3 +69,4 @@ The imposition pads the content pages to a multiple of 4. With the Credo (Sunday
 - Aug 14: posture separators, `watch_render.py`, the instructions page (1.html), and page re-flow.
 - Aug 17: quiet (grey) parts marked with `.quiet-part`. Reverted on Oct 7 (commit 7a11084), so these classes no longer exist.
 - Oct 8: rubrics simplified, labels unified (S./M., K./W.); whole booklet reflowed from 22 to 20 pages (one A4 sheet fewer).
+- Oct 13: the Marriage intro page (old 2.html) removed; 1.html now greets the guests, explains who may receive Communion and how to use the missal. Files 3–21 renumbered to 2–20 with columns/headers mirrored for the new parity.
