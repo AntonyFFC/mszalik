@@ -50,6 +50,7 @@ A booklet (A5 pages, printed as folded A4 sheets) for a wedding in the Tradition
 | `<img class="posture-sep" src="...">` | Posture symbols: `klk.png` kneel, `kon_klk.png` rise from kneeling, `wst.png` stand, `sdn.png` sit |
 | `<span class="cross"><img src="img.png"></span>` | Small red cross: the celebrant makes the sign of the cross here |
 | `.lettrine` | Large red initial letter |
+| `<div class="piesn" style="height: …mm;">` | Empty space reserved for a hymn whose text is not known yet (offertory on 12.html, closing song on 20.html). Replace it with the text; keep the page fitting |
 
 Paragraphs start with `&emsp;` for the indent. The fonts are Century Schoolbook, with red `#ee1d23`.
 
@@ -57,7 +58,7 @@ Known quirks (left as they are, because fixing them would shift the layout every
 
 ## Page map (file → printed page → content)
 
-1→3 Welcome to the guests, Communion notice, how to use the missal · 2→4 Rite start, Veni Creator, Emitte, Deus qui corda · 3→5 Ephesians / Matthew readings, sermon, blessing of rings (versicles) · 4→6 Ring prayer, Scrutinium, start of consent · 5→7 Vows, rings, confirmation of the marriage · 6→8 Call to prayer, Ps 127, Kyrie, Pater noster, closing versicles (start) · 7→9 Closing versicles (end), prayer Respice · 8→10 Ordo Missæ: Introit, Kyrie · 9→11 Gloria, Collect · 10→12 Epistle, Gradual, preparation for the Gospel · 11→13 Gospel, Credo (start) · 12→14 Credo (end), Offertory, Preface dialogue · 13→15 Preface, Sanctus, Canon · 14→16 Consecration · 15→17 Per omnia, Pater noster, nuptial blessing (start) · 16→18 Nuptial blessing (end), Fraction · 17→19 Pax, Agnus Dei, Confiteor, Misereatur · 18→20 Indulgentiam, Communion, prayers after Communion · 19→21 Postcommunion, Ite, Deus Abraham, Placeat, Blessing · 20→22 Last Gospel
+1→3 Welcome to the guests, Communion notice, how to use the missal · 2→4 Rite start, Veni Creator, Emitte, Deus qui corda · 3→5 Ephesians / Matthew readings, sermon, blessing of rings (versicles) · 4→6 Ring prayer, Scrutinium, start of consent · 5→7 Vows, rings, confirmation of the marriage · 6→8 Call to prayer, Ps 127, Kyrie, Pater noster, closing versicles (start) · 7→9 Closing versicles (end), prayer Respice · 8→10 Ordo Missæ: Introit, Kyrie, Gloria (start) · 9→11 Gloria (end), Collect, Epistle (start) · 10→12 Epistle (end), Gradual, preparation for the Gospel, Gospel dialogue · 11→13 Gospel, Credo (start) · 12→14 Credo (end), Offertory with space for a song, Preface dialogue · 13→15 Preface, Sanctus, Canon · 14→16 Consecration · 15→17 Per omnia, Pater noster, nuptial blessing (start) · 16→18 Nuptial blessing (end), Fraction · 17→19 Pax, Agnus Dei, Confiteor, Misereatur · 18→20 Indulgentiam, Communion, prayers after Communion · 19→21 Postcommunion, Ite, Deus Abraham, Placeat, Blessing · 20→22 Last Gospel, space for the closing song
 
 The imposition pads the content pages to a multiple of 4. There are 20 pages (with the Credo for the Sunday wedding), i.e. exactly 5 A4 sheets; one more page would need a 6th sheet with 3 blank pages.
 
@@ -70,3 +71,4 @@ The imposition pads the content pages to a multiple of 4. There are 20 pages (wi
 - Aug 17: quiet (grey) parts marked with `.quiet-part`. Reverted on Oct 7 (commit 7a11084), so these classes no longer exist.
 - Oct 8: rubrics simplified, labels unified (S./M., K./W.); whole booklet reflowed from 22 to 20 pages (one A4 sheet fewer).
 - Oct 13: the Marriage intro page (old 2.html) removed; 1.html now greets the guests, explains who may receive Communion and how to use the missal. Files 3–21 renumbered to 2–20 with columns/headers mirrored for the new parity.
+- Oct 13: space reserved for an offertory hymn (about 1/3 page) and a short closing hymn; Mass pages 8–12 reflowed to keep 20 pages.
