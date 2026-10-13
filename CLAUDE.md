@@ -4,7 +4,7 @@ A booklet (A5 pages, printed as folded A4 sheets) for a wedding in the Tradition
 
 ## How it is built
 
-- **One HTML file = one A5 page.** `1.html … 20.html` are the content pages, all styled by `styles.css` (`@page` size 148×210 mm). `0.html` is an empty template page.
+- **One HTML file = one A5 page.** `1.html … 21.html` are the content pages, all styled by `styles.css` (`@page` size 148×210 mm). `0.html` is an empty template page.
 - `htmltopdf.py` uses headless Chrome (Selenium + CDP `Page.printToPDF`) to render each `N.html` to `N.pdf`, then merges them into `missale_ready.pdf`. `save_html_as_pdf(html, pdf)` is the reusable function.
 - `pages_alghoritm.py` does the saddle-stitch imposition. It pads the page count to a multiple of 4 (`None` = blank page), puts 2 A5 pages on each A4 side with `mergea5toa4.py`, and writes `sheet_<BR><BL><L><R>.pdf` (one double-sided A4 sheet each). It prints an `index.html` with links to them.
 - `megre_cover.py` builds `okladka.pdf` (the cover) from `Barbara.pdf`, using background `#FEFAF2`.
@@ -45,7 +45,7 @@ A booklet (A5 pages, printed as folded A4 sheets) for a wedding in the Tradition
 | `.parallel-container` > `.latin` + `.polish` (or `.polish-r` + `.latin-r`) | Two-column Latin/Polish text |
 | `.red-info` | Rubric: red instructions, not read aloud |
 | `.naglowek-liturgiczny` | Flex header line: bold title + scripture reference (2.8 mm span) |
-| `<b style="color: #ee1d23;">&emsp;S. </b>` / `M.` (Latin), `K.` / `W.` (Polish) | Dialogue speaker labels: priest / server (Latin), priest / faithful (Polish). Used everywhere, including the marriage rite; the people's "Amen" is `M.`/`W.`. `V.` is kept only for a choir verse (Introit Gloria Patri on 9.html). Explained to readers on 1.html |
+| `<b style="color: #ee1d23;">&emsp;S. </b>` / `M.` (Latin), `K.` / `W.` (Polish) | Dialogue speaker labels: priest / server (Latin), priest / faithful (Polish). Used everywhere, including the marriage rite; the people's "Amen" is `M.`/`W.`. `V.`/`R.` are not used any more; texts said by one person alone (e.g. the Introit) carry no labels. Explained to readers on 1.html |
 | `.dialog` | One-line Q&A row (vows / scrutinium), label left, answer right-aligned |
 | `<img class="posture-sep" src="...">` | Posture symbols: `klk.png` kneel, `kon_klk.png` rise from kneeling, `wst.png` stand, `sdn.png` sit |
 | `<span class="cross"><img src="img.png"></span>` | Small red cross: the celebrant makes the sign of the cross here |
@@ -57,9 +57,9 @@ Known quirks (left as they are, because fixing them would shift the layout every
 
 ## Page map (file → printed page → content)
 
-1→3 How to use the missal · 2→4 Marriage (intro) · 3→5 Rite start, Veni Creator, Emitte, Deus qui corda · 4→6 Ephesians / Matthew readings, sermon, blessing of rings (versicles) · 5→7 Ring prayer, Scrutinium, start of consent · 6→8 Vows, rings, confirmation of the marriage · 7→9 Call to prayer, Ps 127, Kyrie, Pater noster, closing versicles (start) · 8→10 Closing versicles (end), prayer Respice · 9→11 Ordo Missæ: Introit, Kyrie · 10→12 Gloria, Collect · 11→13 Epistle, Gradual, preparation for the Gospel · 12→14 Gospel, Offertory · 13→15 Preface, Sanctus, Canon · 14→16 Consecration · 15→17 Per omnia, Pater noster, nuptial blessing (start) · 16→18 Nuptial blessing (end), Fraction · 17→19 Pax, Agnus Dei, Confiteor, Ecce Agnus Dei · 18→20 Domine non sum dignus, Communion, Postcommunion, Ite missa est · 19→21 Deus Abraham, Placeat, Blessing, Last Gospel · 20→22 Last Gospel (end)
+1→3 How to use the missal · 2→4 Marriage (intro) · 3→5 Rite start, Veni Creator, Emitte, Deus qui corda · 4→6 Ephesians / Matthew readings, sermon, blessing of rings (versicles) · 5→7 Ring prayer, Scrutinium, start of consent · 6→8 Vows, rings, confirmation of the marriage · 7→9 Call to prayer, Ps 127, Kyrie, Pater noster, closing versicles (start) · 8→10 Closing versicles (end), prayer Respice · 9→11 Ordo Missæ: Introit, Kyrie · 10→12 Gloria, Collect · 11→13 Epistle, Gradual, preparation for the Gospel · 12→14 Gospel, Credo (start) · 13→15 Credo (end), Offertory, Preface dialogue · 14→16 Preface, Sanctus, Canon · 15→17 Consecration · 16→18 Per omnia, Pater noster, nuptial blessing (start) · 17→19 Nuptial blessing (end), Fraction · 18→20 Pax, Agnus Dei, Confiteor, Misereatur · 19→21 Indulgentiam, Communion, prayers after Communion · 20→22 Postcommunion, Ite, Deus Abraham, Placeat, Blessing · 21→23 Last Gospel
 
-The imposition pads the content pages to a multiple of 4, so 20 pages = 5 A4 sheets with no blanks. Adding a 21st page costs a whole extra sheet (3 blank pages).
+The imposition pads the content pages to a multiple of 4. With the Credo (Sunday wedding) there are 21 pages, i.e. 6 A4 sheets with 3 blank pages at the end; 20 pages would be exactly 5 sheets.
 
 ## History
 
